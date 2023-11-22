@@ -54,7 +54,7 @@ export default function EventInfoOrEdit({
                 name="name"
                 required
                 type="text"
-                className="border"
+                className="border bg-gray-200"
                 value={name}
                 onChange={(e) => setName(e.currentTarget.value)}
               />
@@ -80,7 +80,7 @@ export default function EventInfoOrEdit({
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.currentTarget.value)}
-                className="border"
+                className="border bg-gray-200"
               />
             </div>
             <input type="hidden" name="id" value={id} />
