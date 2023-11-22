@@ -21,6 +21,7 @@ export default async function Page({ params }: { params: { id: number } }) {
           prevDescription={selectedEvent[0].description}
           prevDate={selectedEvent[0].date}
           prevName={selectedEvent[0].name}
+          id={params.id}
         />
       </div>
       <div className="w-1/3 py-2">

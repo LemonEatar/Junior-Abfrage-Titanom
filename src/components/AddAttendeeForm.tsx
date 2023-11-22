@@ -45,7 +45,7 @@ export default function AddAttendeeForm({ event_id }: { event_id: number }) {
           <input
             name="contact_info"
             required
-            type="number"
+            type="tel"
             className="border bg-gray-200"
           />
         </div>

@@ -11,12 +11,14 @@ const initialState = {
 type ChangeEventProps = {
   prevName: string;
   prevDate: string;
+  id: number;
   prevDescription: string;
 };
 export default function EventInfoOrEdit({
   prevName,
   prevDate,
   prevDescription,
+  id,
 }: ChangeEventProps) {
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState<string>(prevName);
@@ -81,8 +83,19 @@ export default function EventInfoOrEdit({
                 className="border"
               />
             </div>
+            <input type="hidden" name="id" value={id} />
           </fieldset>
-          <SubmitButton />
+          <div className="flex">
+            <SubmitButton />
+            <div className="p-2">
+              <button
+                className="bg-gray-200 hover:bg-blue-200 rounded-lg p-2"
+                onClick={() => setEdit(false)}
+              >
+                Finish
+              </button>
+            </div>
+          </div>
         </form>
       ) : (
         <div className="border-2 border-black w-1/5 px-2 py-2">

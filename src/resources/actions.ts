@@ -88,14 +88,18 @@ export async function updateEvent(prevState: any, formData: FormData) {
     name: formData.get("name"),
     description: formData.get("description"),
     date: formData.get("date"),
+    id: Number(formData.get("id")),
   });
 
   console.info(data.name);
-
+  if (data.id === undefined) {
+    throw new Error("Id undefined");
+  }
   try {
     await db
       .update(event)
-      .set({ name: data.name, date: data.date, description: data.description });
+      .set({ name: data.name, date: data.date, description: data.description })
+      .where(eq(event.id, data.id));
     revalidatePath("/events");
     return { message: "Update Succesfull" };
   } catch (e) {
